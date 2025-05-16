@@ -114,3 +114,36 @@
 ### 3  模块交互
 
 ## 体系结构描述
+
+### 1  接口设计
+
+#### prompt 模块
+
+#### embedding 模块
+
+#### llm 模块
+
+`BasicLLMInterface` 抽象类提供了以下抽象方法作为接口：
+
+| 接口名称      | 接口声明                                             | 接口功能                                                     |
+| ------------- | ---------------------------------------------------- | ------------------------------------------------------------ |
+| single_invoke | `single_invoke( self, prompt : str ) -> BaseMessage` | 与 LLM 进行一次单轮对话交互，返回 `BaseMessage` 对象。       |
+| single_chat   | `single_chat( self, prompt : str ) -> str`           | 与 LLM 进行一次单轮对话交互，返回回答字符串。                |
+| multi_invoke  | `multi_invoke( self, prompt : str ) -> BaseMessage`  | 与 LLM 进行一次多轮对话交互，返回 `BaseMessage` 对象。反复调用该方法即可进行 LLM 多轮对话。 |
+| multi_chat    | `multi_chat( self, prompt : str ) -> str`            | 与 LLM 进行一次多轮对话交互，返回回答字符串。反复调用该方法即可进行 LLM 多轮对话。 |
+
+#### metric 模块
+
+#### benchmark 模块
+
+#### evaluation 模块
+
+#### report 模块
+
+#### base 模块
+
+#### integration 模块
+
+#### user 模块
+
+### 2  数据设计
