@@ -30,6 +30,41 @@
       "llm_name" : "deepseek-reasoner",
       "api_key_name" : "DEEPSEEK_API_KEY",
       "api_key" : ""
+    },
+    {
+      "llm_name" : "gpt-3.5-turbo",
+      "api_key_name" : "OPENAI_API_KEY",
+      "api_key" : ""
+    },
+    {
+      "llm_name" : "gpt-4o",
+      "api_key_name" : "OPENAI_API_KEY",
+      "api_key" : ""
+    },
+    {
+      "llm_name" : "claude-3-sonnet-20240229",
+      "api_key_name" : "OPENAI_API_KEY",
+      "api_key" : ""
+    },
+    {
+      "llm_name" : "gemini-1.5-flash",
+      "api_key_name" : "OPENAI_API_KEY",
+      "api_key" : ""
+    },
+    {
+      "llm_name" : "llama3-70b-8192",
+      "api_key_name" : "OPENAI_API_KEY",
+      "api_key" : ""
+    },
+    {
+      "llm_name" : "qwen2.5-14b-instruct",
+      "api_key_name" : "OPENAI_API_KEY",
+      "api_key" : ""
+    },
+    {
+      "llm_name" : "codestral-latest",
+      "api_key_name" : "OPENAI_API_KEY",
+      "api_key" : ""
     }
   ]
 
