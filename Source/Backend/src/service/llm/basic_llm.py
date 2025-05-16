@@ -1,5 +1,5 @@
 import os
-import getpass
+from getpass import getpass
 
 from langchain_core.language_models import BaseChatModel
 from langchain_core.messages import BaseMessage
@@ -11,9 +11,11 @@ from langgraph.graph import StateGraph
 from langgraph.graph.state import CompiledStateGraph
 from langgraph.checkpoint.memory import MemorySaver
 
+from langchain.chat_models import init_chat_model
 from langchain_community.chat_models import ChatZhipuAI
 
 from src.interface.llm.basic_llm_interface import BasicLLMInterface
+from src.config import default_config
 
 
 class BasicLLM( BasicLLMInterface ):
@@ -28,11 +30,21 @@ class BasicLLM( BasicLLMInterface ):
     multi_config : dict[ str : dict[ str : str ] ]
 
 
-    def __init__( self ):
-        if not os.environ.get( "ZHIPUAI_API_KEY" ):
-            os.environ[ "ZHIPUAI_API_KEY" ] = getpass.getpass( "Enter ZHIPU_API_KEY:" )
+    def __init__( self, llm_config : dict[ str : str ] = default_config.default_llm_config() ):
+        api_key_name = llm_config[ "api_key_name" ]
+        if not os.environ.get( api_key_name ):
+            if llm_config[ "api_key" ] != "":
+                os.environ[ api_key_name ] = llm_config[ "api_key" ]
+            else:
+                os.environ[ api_key_name ] = getpass( "Enter { api_key_name }:" )
 
-        self.llm = ChatZhipuAI( model = "glm-4-flash" )
+        if llm_config[ "provider" ] == "zhipu":
+            self.llm = ChatZhipuAI( model = llm_config[ "llm_name" ] )
+        else:
+            self.llm = init_chat_model(
+                model = llm_config[ "llm_name" ],
+                model_provider = llm_config[ "provider" ]
+            )
 
         self.launch_multi()
 
