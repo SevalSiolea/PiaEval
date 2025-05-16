@@ -17,3 +17,12 @@ class BasicLLMInterface( ABC ):
     def single_chat( self, prompt : str ) -> str:
         response = self.single_invoke( prompt )
         return response.content
+
+    @abstractmethod
+    def multi_invoke(self, prompt: str) -> BaseMessage:
+        pass
+
+    @abstractmethod
+    def multi_chat( self, prompt : str ) -> str:
+        response = self.multi_invoke( prompt )
+        return response.content
