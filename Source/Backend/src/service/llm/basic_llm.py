@@ -11,8 +11,8 @@ from langgraph.graph import StateGraph
 from langgraph.graph.state import CompiledStateGraph
 from langgraph.checkpoint.memory import MemorySaver
 
-from langchain.chat_models import init_chat_model
 from langchain_community.chat_models import ChatZhipuAI
+from langchain_deepseek import ChatDeepSeek
 
 from src.interface.llm.basic_llm_interface import BasicLLMInterface
 from src.config import default_config
@@ -38,13 +38,10 @@ class BasicLLM( BasicLLMInterface ):
             else:
                 os.environ[ api_key_name ] = getpass( "Enter { api_key_name }:" )
 
-        if llm_config[ "provider" ] == "zhipu":
+        if api_key_name == "ZHIPUAI_API_KEY":
             self.llm = ChatZhipuAI( model = llm_config[ "llm_name" ] )
-        else:
-            self.llm = init_chat_model(
-                model = llm_config[ "llm_name" ],
-                model_provider = llm_config[ "provider" ]
-            )
+        elif api_key_name == "DEEPSEEK_API_KEY":
+            self.llm = ChatDeepSeek( model = llm_config[ "llm_name" ] )
 
         self.launch_multi()
 

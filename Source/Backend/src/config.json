@@ -3,31 +3,31 @@
   "llm" : [
     {
       "llm_name" : "glm-4-flash",
-      "provider" : "zhipu",
       "api_key_name" : "ZHIPUAI_API_KEY",
       "api_key" : ""
     },
     {
       "llm_name" : "glm-4-long",
-      "provider" : "zhipu",
       "api_key_name" : "ZHIPUAI_API_KEY",
       "api_key" : ""
     },
     {
       "llm_name" : "glm-4-air",
-      "provider" : "zhipu",
       "api_key_name" : "ZHIPUAI_API_KEY",
       "api_key" : ""
     },
     {
       "llm_name" : "glm-4-plus",
-      "provider" : "zhipu",
       "api_key_name" : "ZHIPUAI_API_KEY",
       "api_key" : ""
     },
     {
       "llm_name" : "deepseek-chat",
-      "provider" : "deepseek",
+      "api_key_name" : "DEEPSEEK_API_KEY",
+      "api_key" : ""
+    },
+    {
+      "llm_name" : "deepseek-reasoner",
       "api_key_name" : "DEEPSEEK_API_KEY",
       "api_key" : ""
     }
