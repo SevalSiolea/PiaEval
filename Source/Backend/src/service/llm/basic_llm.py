@@ -43,7 +43,12 @@ class BasicLLM( BasicLLMInterface ):
             self.llm = ChatZhipuAI( model = llm_config[ "llm_name" ] )
         elif api_key_name == "DEEPSEEK_API_KEY":
             self.llm = ChatDeepSeek( model = llm_config[ "llm_name" ] )
-        else:
+        elif api_key_name == "OPENAI_API_KEY":
+            if not os.environ.get( "OPENAI_BASE_URL" ):
+                if llm_config[ "OPENAI_BASE_URL" ] != "":
+                    os.environ[ "OPENAI_BASE_URL" ] = llm_config[ "base_url" ]
+                else:
+                    os.environ[ "OPENAI_BASE_URL" ] = getpass( "Enter OPENAI_BASE_URL:" )
             self.llm = ChatOpenAI( model = llm_config[ "llm_name" ] )
 
         self.launch_multi()
