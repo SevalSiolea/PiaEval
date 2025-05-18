@@ -79,6 +79,16 @@
       "api_key" : "",
       "base_url" : "https://aihubmix.com/v1"
     }
-  ]
+  ],
+
+  "eval" : {
+    "classification" : [
+      {
+        "file_name" : "deepset_train",
+        "file_type" : "parquet"
+      }
+    ]
+  }
+
 
 }

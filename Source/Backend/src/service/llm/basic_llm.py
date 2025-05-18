@@ -84,3 +84,6 @@ class BasicLLM( BasicLLMInterface ):
         self.multi_engine = message_state_graph.compile( checkpointer = MemorySaver() )
 
         self.multi_config = { "configurable" : { "thread_id" : "000000" } }
+
+default_llm_list = [ BasicLLM( llm_config ) for llm_config in default_config.llm_config() ]
+default_llm = default_llm_list[ 0 ]

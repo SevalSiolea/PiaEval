@@ -37,5 +37,14 @@ class Config:
     def default_llm_config( self ) -> dict[ str : str ]:
         return self.llm_config()[ 0 ]
 
+    def eval_config( self, task_name : str ) -> list[ dict[ str : str ] ]:
+        if self.config is None:
+            self.load_config()
+
+        return self.config[ "eval" ][ task_name ]
+
+    def default_eval_config( self, task_name ) -> dict[ str : str ]:
+        return self.eval_config( task_name )[ 0 ]
+
 
 default_config = Config()
