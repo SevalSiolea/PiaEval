@@ -4,7 +4,7 @@ import re
 from src.interface.benchmark.classification_interface import ClassificationInterface
 from src.interface.llm.basic_llm_interface import BasicLLMInterface
 
-from src.service.metric.classification import GuardResult
+from src.service.metric.guard_classification import GuardResult
 
 
 class GuardClassification( ClassificationInterface ):
