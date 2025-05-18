@@ -64,6 +64,10 @@ PiaEval 项目是个人项目，因而本文档并无团队协作的目的。
 
 实现 LLM 交互功能。
 
+#### v0.4
+
+实现 LLM classification 评估。
+
 ### 子版本说明
 
 子版本用于划分增加特性或修复 bug 的版本。增加特性或修复 bug 具有以下含义之一：
@@ -105,6 +109,26 @@ PiaEval 项目是个人项目，因而本文档并无团队协作的目的。
 #### v0.3.3
 
 实现 LLM 自动化配置。
+
+#### v0.4.1
+
+实现基本的数据集加载。
+
+#### v0.4.2
+
+实现 LLM classification 基准测试。
+
+#### v0.4.3
+
+实现 LLM classification 评估指标。
+
+#### v0.4.4
+
+实现 LLM classification 评估。
+
+#### v0.4.5
+
+实现 LLM classification 结果分析和评估报告。
 
 ## Git 版本
 
