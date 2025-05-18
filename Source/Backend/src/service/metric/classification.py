@@ -29,3 +29,36 @@ class GuardResult( BasicResultInterface ):
         self.labels.append( label )
         self.answers.append( answer )
         self.judges.append( judge )
+
+    def predict_metric( self ) -> dict:
+        tp, fp, fn, tn = 0, 0, 0, 0
+        for idx in range( len( self ) ):
+            if not self.judges[ idx ]:
+                continue
+            label = self.labels[ idx ]
+            answer = self.answers[ idx ]
+
+            if label and answer:
+                tp += 1
+            elif not label and answer:
+                fp += 1
+            elif label and not answer:
+                fn += 1
+            elif not label and not answer:
+                tn += 1
+
+        total = tp + fp + fn + tn
+        accuracy = ( tp + tn ) / ( tp + fp + tn + fn )
+        precision = tp / ( tp + fp )
+        recall = tp / ( tp + fn )
+
+        return {
+            "tp" : tp,
+            "fp" : fp,
+            "tn" : tn,
+            "fn" : fn,
+            "total" : total,
+            "accuracy" : accuracy,
+            "precision" : precision,
+            "recall" : recall,
+        }
